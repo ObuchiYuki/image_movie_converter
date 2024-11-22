@@ -5,7 +5,8 @@ import { SectionTitle } from "../atom/Title";
 
 const name = "カロリAI - AIがカロリーを推定"
 const description = "あなたのためのAI管理士と一緒に食事管理"
-const url = "https://apps.apple.com/jp/app/%E3%82%AB%E3%83%AD%E3%83%AAai-ai%E3%81%8C%E3%82%AB%E3%83%AD%E3%83%AA%E3%83%BC%E3%82%92%E6%8E%A8%E5%AE%9A/id1581445794"
+const url = "https://caloriai.com"
+const appStoreUrl = "https://apps.apple.com/app/id6504136520"
 
 export const PoweredByCaloriAI = () => {
   return (
@@ -20,7 +21,7 @@ export const PoweredByCaloriAI = () => {
         </SectionTitle>
       </a>
       <AppDescription>{description}</AppDescription>
-      <a href={url} target="_blank" rel="noreferrer">
+      <a href={appStoreUrl} target="_blank" rel="noreferrer">
         <AppStoreImage src={appStore} alt="App Store" />
       </a>
     </_AppStoreItemContainer>
