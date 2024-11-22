@@ -52,7 +52,7 @@ const videoSizeOptions = [
   { value: "720p", label: "720px" },
   { value: "1200p", label: "1200px" },
   { value: "2000p", label: "2000px" },
-  { value: "original", label: "元のサイズを保持" },
+  { value: "original", label: "元のサイズ" },
 ]
 
 const videoSizeToMaxSize = (videoSize: string): number|null => {

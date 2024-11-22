@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/lumivid/static/css/main.c7c2ad2c.css",
-    "main.js": "/lumivid/static/js/main.217f5e73.js",
+    "main.js": "/lumivid/static/js/main.a666479d.js",
     "static/js/726.f458fb75.chunk.js": "/lumivid/static/js/726.f458fb75.chunk.js",
     "static/js/453.283e3ed1.chunk.js": "/lumivid/static/js/453.283e3ed1.chunk.js",
     "static/media/app-icon.svg": "/lumivid/static/media/app-icon.47caae785d7fb9ce4ff16479562300ea.svg",
     "static/media/app-store.svg": "/lumivid/static/media/app-store.621b45d839a0f18bcb7d0ecde88dbdaf.svg",
     "index.html": "/lumivid/index.html",
     "main.c7c2ad2c.css.map": "/lumivid/static/css/main.c7c2ad2c.css.map",
-    "main.217f5e73.js.map": "/lumivid/static/js/main.217f5e73.js.map",
+    "main.a666479d.js.map": "/lumivid/static/js/main.a666479d.js.map",
     "726.f458fb75.chunk.js.map": "/lumivid/static/js/726.f458fb75.chunk.js.map",
     "453.283e3ed1.chunk.js.map": "/lumivid/static/js/453.283e3ed1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c7c2ad2c.css",
-    "static/js/main.217f5e73.js"
+    "static/js/main.a666479d.js"
   ]
 }
