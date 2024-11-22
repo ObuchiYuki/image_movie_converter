@@ -32,8 +32,7 @@ const AppStoreImage = styled.img`
 `;
 
 const AppIcon = styled.img`
-  width: 64px;
-  height: 64px;
+  border-radius: 16px;
 `;
 
 const AppDescription = styled.p`

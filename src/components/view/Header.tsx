@@ -17,7 +17,7 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <a href="/">
-        <HeaderLogo src="img/logo.png" alt="LUMIVID Logo" />
+        <HeaderLogo src="logo.png" alt="LUMIVID Logo" />
       </a>
     </HeaderContainer>
   )
