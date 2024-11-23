@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { MenuIndicator } from "../svg/MenuIndicator"
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const _Container = styled.div`
   display: flex;
@@ -66,25 +66,43 @@ export const PulldownMenu = <TValue extends unknown>({
   options: { label: string, value: TValue }[],
   onSelect: (value: TValue) => void
 }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const currentLabel = options.find(option => option.value === selectedValue)?.label ?? "選択なし"
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const currentLabel = options.find(option => option.value === selectedValue)?.label ?? "選択なし";
+
   const onSelectIndex = (index: number) => {
-    onSelect(options[index].value)
-    setIsOpen(false)
-  }
+    onSelect(options[index].value);
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <_Container>
+    <_Container ref={containerRef}>
       <_Title>{title}</_Title>
       <_IndicatorConatiner onClick={() => setIsOpen(!isOpen)}>
         {currentLabel}
-        <MenuIndicator/>
+        <MenuIndicator />
         <_Dropdown isOpen={isOpen}>
           {options.map((option, index) => (
-            <_DropdownItem key={index} onClick={() => onSelectIndex(index)}>{option.label}</_DropdownItem>
-          ))} 
+            <_DropdownItem key={index} onClick={() => onSelectIndex(index)}>
+              {option.label}
+            </_DropdownItem>
+          ))}
         </_Dropdown>
       </_IndicatorConatiner>
     </_Container>
   );
-}
+};

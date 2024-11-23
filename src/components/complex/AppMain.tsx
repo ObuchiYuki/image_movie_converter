@@ -4,7 +4,7 @@ import { VideoContainer } from "../content-view/VideoContainer"
 import { ImageDropzone } from "../control/ImageDropzone"
 import { ProminentButton } from "../control/ProminentButton"
 import { SettingButton } from "../control/SettingButton"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { MenuOverlay } from "../content-view/MenuOverlay"
 import { PulldownMenu } from "../control/PulldownMenu"
 import { ImageMovieConverter } from "../../service/ImageMovieConverter"
@@ -94,6 +94,21 @@ export const AppMain = () => {
   const [progress, setProgress] = useState(0)
   const [movieSrc, setMovieSrc] = useState<string | null>(null)
   const [isProcessing, setIsProcessing] = useState(false)
+  const settingRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (settingRef.current && !settingRef.current.contains(event.target as Node)) {
+        setSettingOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
 
   const onClickSettingButton = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
@@ -161,7 +176,7 @@ export const AppMain = () => {
 
   return (
     <_AppMain>
-      <_SettingButtonContainer>
+      <_SettingButtonContainer ref={settingRef}>
         <SettingButton onClick={onClickSettingButton}/>
         {
           settingOpen && (
