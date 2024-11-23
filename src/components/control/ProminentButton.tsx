@@ -11,7 +11,14 @@ const _ProminentButton = styled.button<{ disabled?: boolean }>`
   min-width: 300px;
   opacity: ${({ disabled }) => disabled ? 0.25 : 1};
   cursor: ${({ disabled }) => disabled ? "" : "pointer"};
-  transition: opacity 0.3s;
+  transition: 0.3s;
+  
+  &:hover {
+    // not disabled
+    /* transform: translateY(-2px); */
+
+    transform: ${({ disabled }) => disabled ? "" : "translateY(-2px)"};
+  }
 `
 
 export const ProminentButton = ({ children, disabled, type = "button", ...props }: { children: React.ReactNode, disabled?: boolean, type?: "button" | "submit" | "reset" } & React.HTMLProps<HTMLButtonElement>) => {

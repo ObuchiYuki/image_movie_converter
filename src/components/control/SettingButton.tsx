@@ -12,6 +12,12 @@ const _SettingButton = styled.button`
   align-items: center;
   justify-content: center;
 
+  transition: transform 0.3s;
+
+  &:hover { // rotete the icon when hovered
+    transform: rotate(45deg);
+  }
+
   svg {
     width: 24px;
     width: 24px;
